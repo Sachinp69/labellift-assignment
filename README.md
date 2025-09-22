@@ -9,9 +9,8 @@ A simple **Next.js 15 + Tailwind CSS v4** dashboard for managing music tracks, b
 - [Demo](#demo)  
 - [Features](#features)  
 - [Tech Stack](#tech-stack)  
-- [Setup Instructions](#setup-instructions)  
-- [Approach](#approach)  
-- [Future Improvements](#future-improvements)  
+- [Approach / How It Works](#Approach)   
+- [Setup Instructions](#setup-instructions)   
 
 ---
 
@@ -41,10 +40,6 @@ A simple **Next.js 15 + Tailwind CSS v4** dashboard for managing music tracks, b
 - Dynamic route (`/track/[id]`)  
 - Shows all track details, fetched from API  
 
-✅ **Theme Toggle (Bonus)**  
-- Light/dark mode toggle button  
-- Persists theme in `localStorage`  
-
 ✅ **Responsive Design**  
 - Fully usable on desktop, tablet, and mobile  
 
@@ -58,6 +53,37 @@ A simple **Next.js 15 + Tailwind CSS v4** dashboard for managing music tracks, b
 - Mock backend via **Next.js API Routes**  
 
 ---
+## Approach
+
+The project was built using **Next.js 15 App Router** and **Tailwind CSS v4**. The key decisions and approach were:
+
+1. **Routing & Pages**  
+   - **Login Page:** A client component with a mock authentication form. Uses `localStorage` to store the username.  
+   - **Dashboard Page:** Lists tracks in a table. Fetches mock data from a Next.js API route.  
+   - **Track Upload Page:** Form to add new tracks, which updates the mock API data.  
+   - **Track Details Page:** Dynamic route (`/track/[id]`) fetching the selected track’s details.
+
+2. **State Management**  
+   - Used **React hooks** (`useState`, `useEffect`) to manage:  
+     - User session (from `localStorage`)  
+     - Tracks array  
+     - Search/filter input  
+
+3. **API Integration (Mock)**  
+   - **Next.js API routes** (`app/api/tracks/route.js`) simulate a backend.  
+   - Supports **GET** for fetching all tracks and **POST** for adding new tracks.  
+   - Tracks are stored in memory (simple array) for this assessment.
+
+5. **UI / UX Design**  
+   - Responsive design using Tailwind CSS utilities (`flex`, `grid`, responsive prefixes).  
+   - Simple and clean table layout for dashboard.  
+   - Inputs and buttons styled consistently with hover/focus states.  
+   - Search bar filters tracks by title or artist in real time.
+
+6. **Bonus / Extra Effort**  
+   - Search/filter on dashboard tracks.  
+   - Responsive design verified for mobile, tablet, and desktop.
+
 
 ## Setup Instructions
 
